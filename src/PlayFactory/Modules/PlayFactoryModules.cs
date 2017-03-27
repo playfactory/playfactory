@@ -69,9 +69,8 @@ namespace PlayFactory.Modules
             //}
 
             var type = typeof(PlayFactoryModule);
-            var currentDomain = AppDomain.CurrentDomain;
 
-            currentDomain.GetAssemblies(assembly =>
+            AppDomain.GetAssemblies(assembly =>
             {
                 var modules = assembly.GetTypes().Where(t => t != type && typeof(PlayFactoryModule).IsAssignableFrom(t))
                     .Select(t => (IPlayFactoryModule) Activator.CreateInstance(t));

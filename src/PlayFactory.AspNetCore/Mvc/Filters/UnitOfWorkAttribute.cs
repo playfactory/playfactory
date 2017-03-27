@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PlayFactory.AspNetCore.Config;
 using PlayFactory.AspNetCore.Filters.Extensions;
-using PlayFactory.EntityFrameworkCore.UnitOfWork;
 using Microsoft.AspNetCore.Mvc.Abstractions;
+using PlayFactory.EFCore.UnitOfWork;
 
 namespace PlayFactory.AspNetCore.Filters
 {

@@ -6,21 +6,17 @@ using Microsoft.Extensions.DependencyModel;
 
 namespace PlayFactory.Reflection
 {
+    /// <summary>
+    /// Esta classe possui métodos úteis para trabalhar com Refletion.
+    /// </summary>
     public class AppDomain
     {
-        public static AppDomain CurrentDomain { get; private set; }
-
-        static AppDomain()
-        {
-            CurrentDomain = new AppDomain();
-        }
-
-        public Assembly[] GetAssemblies()
+        public static Assembly[] GetAssemblies()
         {
             return GetAssemblies(null);
         }
 
-        public Assembly[] GetAssemblies(Action<Assembly> action)
+        public static Assembly[] GetAssemblies(Action<Assembly> action)
         {
             var assemblies = new List<Assembly>();
             var dependencies = DependencyContext.Default.RuntimeLibraries;
@@ -39,8 +35,8 @@ namespace PlayFactory.Reflection
 
         private static bool IsCandidateCompilationLibrary(RuntimeLibrary compilationLibrary)
         {
-            return compilationLibrary.Name == ("Specify")
-                || compilationLibrary.Dependencies.Any(d => d.Name.StartsWith("Specify"));
+            return compilationLibrary.Type == "project"
+                || compilationLibrary.Dependencies.Any(d => d.Name.StartsWith("PlayFactory"));
         }
     }
 }

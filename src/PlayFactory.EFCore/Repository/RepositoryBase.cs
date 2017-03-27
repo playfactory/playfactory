@@ -1,7 +1,7 @@
-﻿using PlayFactory.EntityFrameworkCore.UnitOfWork;
+﻿using PlayFactory.EFCore.UnitOfWork;
 using PlayFactory.Repository;
 
-namespace PlayFactory.EntityFrameworkCore.Repository
+namespace PlayFactory.EFCore.Repository
 {
     public class RepositoryBase<TEntity> : RepositoryInternal<TEntity>, IRepositoryBase<TEntity>
         where TEntity : class 

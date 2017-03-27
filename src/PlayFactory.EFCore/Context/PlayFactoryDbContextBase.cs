@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PlayFactory.EntityFrameworkCore.Mapping;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using PlayFactory.EFCore.Mapping;
+using PlayFactory.Reflection;
 using PlayFactory.Reflection.Extensions;
 
-namespace PlayFactory.EntityFrameworkCore.Context
+namespace PlayFactory.EFCore.Context
 {
     /// <summary>
     /// DbContext Base para o PLayFactory.
@@ -31,7 +32,7 @@ namespace PlayFactory.EntityFrameworkCore.Context
             var type = typeof(IEntityConfiguration);
             var typeIsNot = new[] { type, typeof(IEntityConfiguration<>), typeof(EntityConfiguration<>) };
 
-            type.GetExecutingAssembly(assembly => 
+            AppDomain.GetAssemblies(assembly => 
             {
                 var entityTypes = assembly.GetTypes().Where(t => t != type && type.IsAssignableFrom(t) && !typeIsNot.Contains(t))
                                 .Select(t => (IEntityConfiguration)Activator.CreateInstance(t)).ToList();

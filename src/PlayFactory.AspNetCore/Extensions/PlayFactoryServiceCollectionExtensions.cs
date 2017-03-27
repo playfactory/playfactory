@@ -2,7 +2,12 @@
 using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using Autofac.Extensions.DependencyInjection;
-using PlayFactory.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
+using PlayFactory.AspNetCore.Mvc.Extensions;
+using PlayFactory.EFCore;
 using PlayFactory.Events.Bus;
 using PlayFactory.IoC;
 using PlayFactory.Modules;
@@ -21,28 +26,8 @@ namespace PlayFactory.AspNetCore.Extensions
         /// <returns>Retorna o Provider do Autofac para controle do IoC</returns>
         public static IServiceProvider AddPlayFactory(this IServiceCollection service)
         {
-            //var builder = ContainerIoC.ScopeContainer(container =>
-            //{
-            //    var moduleManager = PlayFactoryModules.Manager;
-            //    AddModules(moduleManager);
-            //    moduleManager.LoadModules();
-            //    moduleManager.Initialize(container);
-
-            //    container.Populate(service);
-
-            //    return container.Build();
-            //});
-
-            //var container = new ContainerBuilder();
-
-
             var builder = ContainerIoC.ScopeContainer(container =>
             {
-                container.RegisterModule(new PlayFactoryBaseModule());
-                container.RegisterModule(new PlayFactoryEntityModule());
-                container.RegisterModule(new PlayFactoryAspNetCoreModule());
-                container.RegisterModule(new EventBusModule());
-
                 var moduleManager = PlayFactoryModules.Manager;
                 moduleManager.LoadModules();
                 moduleManager.Initialize(container);
@@ -57,5 +42,14 @@ namespace PlayFactory.AspNetCore.Extensions
             return builder.Resolve<IServiceProvider>();
         }
 
+        private static void AddAutofac(IServiceCollection service)
+        {
+            
+        }
+
+        private static void ConfigureAspNetCore(IServiceCollection services)
+        {
+            services.Configure<MvcOptions>(mvcOptions => mvcOptions.AddPlayFactory(services));
+        }
     }
 }

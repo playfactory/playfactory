@@ -1,13 +1,14 @@
-﻿using PlayFactory.Exceptions;
+﻿using System;
 
 namespace PlayFactory.Common
 {
     public static class Check
     {
-        public static void NotNull(object obj, string name)
+        public static T NotNull<T>(T value, string parameterName)
         {
-            if (obj == null)
-                throw new NotNullException($"Value of {name} is Null.");
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+            return value;
         }
     }
 }

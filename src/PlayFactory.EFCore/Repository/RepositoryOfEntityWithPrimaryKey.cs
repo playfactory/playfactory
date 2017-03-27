@@ -4,12 +4,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PlayFactory.EFCore.UnitOfWork;
 using PlayFactory.Entity;
-using PlayFactory.EntityFrameworkCore.UnitOfWork;
 using PlayFactory.Exceptions;
 using PlayFactory.Repository;
 
-namespace PlayFactory.EntityFrameworkCore.Repository
+namespace PlayFactory.EFCore.Repository
 {
     public class RepositoryOfEntityWithPrimaryKey<TEntity, TPrimaryKey> : RepositoryInternal<TEntity>, IRepository<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>

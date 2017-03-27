@@ -12,11 +12,6 @@ namespace PlayFactory.AspNetCore
             builder.RegisterIoCAssemblyTypesByConvertion(this.GetExecutingAssembly());
 
             base.Load(builder);
-        }
-
-        public override bool AutoLoad()
-        {
-            return false;
-        }
+        }       
     }
 }

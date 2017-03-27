@@ -1,15 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using PlayFactory.Collection;
-using PlayFactory.EntityFrameworkCore.Context;
-using PlayFactory.EntityFrameworkCore.UnitOfWork;
+using PlayFactory.EFCore.Context;
+using PlayFactory.EFCore.UnitOfWork;
 using PlayFactory.Repository;
 
-namespace PlayFactory.EntityFrameworkCore.Repository
+namespace PlayFactory.EFCore.Repository
 {
     public class RepositoryInternal<TEntity> : IRepositoryInternal<TEntity>
         where TEntity : class

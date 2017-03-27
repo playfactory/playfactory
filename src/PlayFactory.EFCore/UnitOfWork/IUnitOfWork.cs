@@ -1,8 +1,8 @@
 ﻿using System;
-using PlayFactory.EntityFrameworkCore.Context;
+using PlayFactory.EFCore.Context;
 using PlayFactory.IoC;
 
-namespace PlayFactory.EntityFrameworkCore.UnitOfWork
+namespace PlayFactory.EFCore.UnitOfWork
 {
     /// <summary>
     /// Interface de implementação do padrão Unit Of Work responsável pelo controle de transação da aplicação.

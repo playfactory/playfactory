@@ -1,8 +1,8 @@
-﻿using PlayFactory.Entity;
-using PlayFactory.EntityFrameworkCore.UnitOfWork;
+﻿using PlayFactory.EFCore.UnitOfWork;
+using PlayFactory.Entity;
 using PlayFactory.Repository;
 
-namespace PlayFactory.EntityFrameworkCore.Repository
+namespace PlayFactory.EFCore.Repository
 {
     public class RepositoryOfEntity<TEntity>: RepositoryOfEntityWithPrimaryKey<TEntity, int>, IRepository<TEntity>
         where TEntity : class, IEntity<int>

@@ -36,7 +36,7 @@ namespace PlayFactory.IoC
         /// <returns>Retorna um Builder do Container</returns>
         public static IContainer ScopeContainer(Func<ContainerBuilder, IContainer> action)
         {
-            Builder = action?.Invoke(Container);
+            Builder = action?.Invoke(Container); 
             return Builder;
         }
     }

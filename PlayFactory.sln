@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayFactory.EFCore", "src\P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFactory.AspNetCore", "src\PlayFactory.AspNetCore\PlayFactory.AspNetCore.csproj", "{0F0730FD-E05B-42DA-928B-4B603C5900FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exemplos", "Exemplos", "{54D43C2E-3962-47C8-B0C6-3CA1B895D56D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exemplos.WebApi", "src\Exemplos.WebApi\Exemplos.WebApi.csproj", "{C1C7BBA5-797A-4D61-9900-04966D460955}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{0F0730FD-E05B-42DA-928B-4B603C5900FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F0730FD-E05B-42DA-928B-4B603C5900FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F0730FD-E05B-42DA-928B-4B603C5900FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1C7BBA5-797A-4D61-9900-04966D460955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C7BBA5-797A-4D61-9900-04966D460955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C7BBA5-797A-4D61-9900-04966D460955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C7BBA5-797A-4D61-9900-04966D460955}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1C7BBA5-797A-4D61-9900-04966D460955} = {54D43C2E-3962-47C8-B0C6-3CA1B895D56D}
 	EndGlobalSection
 EndGlobal

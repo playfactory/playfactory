@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
-using PlayFactory.EntityFrameworkCore.Context;
+using PlayFactory.EFCore.Context;
 
-namespace PlayFactory.EntityFrameworkCore.UnitOfWork
+namespace PlayFactory.EFCore.UnitOfWork
 {
     /// <summary>
     /// Classe de implementação do padrão Unit Of Work responsável pelo controle de transação da aplicação.

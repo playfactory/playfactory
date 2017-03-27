@@ -1,11 +1,11 @@
 ﻿using Autofac;
-using PlayFactory.EntityFrameworkCore.Repository;
+using PlayFactory.EFCore.Repository;
 using PlayFactory.IoC.Extensions;
 using PlayFactory.Modules;
 using PlayFactory.Reflection.Extensions;
 using PlayFactory.Repository;
 
-namespace PlayFactory.EntityFrameworkCore
+namespace PlayFactory.EFCore
 {
     public class PlayFactoryEntityModule : PlayFactoryModule
     {
@@ -26,11 +26,6 @@ namespace PlayFactory.EntityFrameworkCore
                 .InstancePerDependency();
 
             base.Load(builder);
-        }
-
-        public override bool AutoLoad()
-        {
-            return false;
         }
     }
 }

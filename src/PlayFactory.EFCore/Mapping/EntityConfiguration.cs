@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
+﻿using System;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace PlayFactory.EntityFrameworkCore.Mapping
+namespace PlayFactory.EFCore.Mapping
 {
     /// <summary>
     /// Classe base para as classes de mapeamento das entidades.

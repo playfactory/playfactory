@@ -13,10 +13,5 @@ namespace PlayFactory
 
             base.Load(builder);
         }
-
-        public override bool AutoLoad()
-        {
-            return false;
-        }
     }
 }
