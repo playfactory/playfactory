@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageId>PlayFactory.AspNetCore</PackageId>
+    <PackageVersion>1.0.0-beta</PackageVersion>
+    <Authors>Welson Play</Authors>
+    <Description>PlayFactory Framework For ASP.NET Core</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) PlayFactory. All rights reserved.</Copyright>
+    <PackageTags>ASP ASP.NET Core ASPNETCORE Angular AngularJS</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
