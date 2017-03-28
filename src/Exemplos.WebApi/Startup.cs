@@ -49,6 +49,8 @@ namespace Exemplos.WebApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

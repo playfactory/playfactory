@@ -36,6 +36,7 @@ namespace PlayFactory
             });
 
             RegisterModules();
+            
         }
 
         private void RegisterBootstrapper(ContainerBuilder container)
@@ -56,6 +57,12 @@ namespace PlayFactory
                 moduleManager.LoadModules();
                 moduleManager.Initialize(container);
             });
+        }
+
+        private void RegisterLogger()
+        {
+            //var logger = loggerFactory.CreateLogger("PlayFactory");
+            //logger.LogInformation("Teste Information");
         }
     }
 }

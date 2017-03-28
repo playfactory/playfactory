@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Autofac;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using PlayFactory.IoC;
 using PlayFactory.Reflection;
 
@@ -13,6 +15,8 @@ namespace PlayFactory.Modules
     /// </summary>
     public class PlayFactoryModules : IPlayFactoryModules, ISingleInstanceDependency
     {
+        private readonly ILogger _logger;
+
         /// <summary>
         /// Lista dos módulos adicionados na aplicação.
         /// </summary>
@@ -20,6 +24,7 @@ namespace PlayFactory.Modules
 
         public PlayFactoryModules()
         {
+            _logger = NullLogger.Instance; 
             Modules = new List<IPlayFactoryModule>();
         }
 
@@ -48,15 +53,27 @@ namespace PlayFactory.Modules
         {
             var type = typeof(PlayFactoryModule);
 
-            AppDomain.GetAssemblies(assembly =>
+            _logger.LogDebug("Initiating loading of the modules.");
+
+            try
             {
-                var modules = assembly.GetTypes().Where(t => t != type && typeof(PlayFactoryModule).IsAssignableFrom(t))
-                    .Select(t => (IPlayFactoryModule) Activator.CreateInstance(t));
+                AppDomain.GetAssemblies(assembly =>
+                {
+                    var modules = assembly.GetTypes().Where(t => t != type && typeof(PlayFactoryModule).IsAssignableFrom(t))
+                        .Select(t => (IPlayFactoryModule)Activator.CreateInstance(t));
 
-                var modulesAutoLoad = modules.Where(m => m.AutoLoad());
+                    var modulesAutoLoad = modules.Where(m => m.AutoLoad());
 
-                Add(modulesAutoLoad);
-            });
+                    Add(modulesAutoLoad);
+                });
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("The following error occurred while loading the module: ", e.Message);               
+                throw;
+            }
+
+            _logger.LogDebug("{0} modules loaded.", Modules.Count);
         }
 
         /// <summary>
@@ -66,10 +83,13 @@ namespace PlayFactory.Modules
         /// <param name="container">ContainerIoC que será utilizado pelos módulos.</param>
         public void Initialize(ContainerBuilder container)
         {
+            _logger.LogDebug("Initiating the registration of Modules in the IoC Container.");
             foreach (var module in Modules)
             {
+                _logger.LogDebug("Registrando o módulo {0}.", module.GetType().FullName);
                 container.RegisterModule(module);
             }
+            _logger.LogDebug("Initiating the registration of Modules in the IoC Container.");
         }
     }
 }
