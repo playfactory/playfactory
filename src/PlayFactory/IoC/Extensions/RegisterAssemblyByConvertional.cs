@@ -38,7 +38,7 @@ namespace PlayFactory.IoC.Extensions
                     var genericArgs = @interface.GetGenericArguments();
                     if (genericArgs.Length == 1)
                     {
-                        EventBus.Instance.Register(genericArgs[0], new IocHandlerFactory(new IocResolver(), type));
+                        EventBus.Instance.Register(genericArgs[0], new IocHandlerFactory(IocResolver.Instance, type));
                     }
                 }
             };

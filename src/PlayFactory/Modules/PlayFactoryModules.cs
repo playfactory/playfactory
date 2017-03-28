@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Autofac;
+using PlayFactory.IoC;
 using PlayFactory.Reflection;
 
 namespace PlayFactory.Modules
@@ -10,15 +11,8 @@ namespace PlayFactory.Modules
     /// <summary>
     /// Classe que gerencia os módulos do PlayFactory
     /// </summary>
-    public class PlayFactoryModules
+    public class PlayFactoryModules : IPlayFactoryModules, ISingleInstanceDependency
     {
-        private static PlayFactoryModules _moduleManager;
-
-        /// <summary>
-        /// Estácia do Gerenciador de Módulos do PlayFactory
-        /// </summary>
-        public static PlayFactoryModules Manager => _moduleManager ?? (_moduleManager = new PlayFactoryModules());
-
         /// <summary>
         /// Lista dos módulos adicionados na aplicação.
         /// </summary>

@@ -26,30 +26,41 @@ namespace PlayFactory.AspNetCore.Extensions
         /// <returns>Retorna o Provider do Autofac para controle do IoC</returns>
         public static IServiceProvider AddPlayFactory(this IServiceCollection service)
         {
-            var builder = ContainerIoC.ScopeContainer(container =>
+            var iocResolve = AddAutofac(container =>
             {
-                var moduleManager = PlayFactoryModules.Manager;
-                moduleManager.LoadModules();
-                moduleManager.Initialize(container);
-
                 container.Populate(service);
-
-                return container.Build();
             });
 
+            ConfigureAspNetCore(service);
+            AddPlayFactoryBootstrap(iocResolve);
 
-
-            return builder.Resolve<IServiceProvider>();
+            return iocResolve.Builder.Resolve<IServiceProvider>();
         }
 
-        private static void AddAutofac(IServiceCollection service)
+        private static IIocResolver AddAutofac(Action<ContainerBuilder> preBuild)
         {
-            
+            var iocResolve = IocResolver.Instance;
+
+            iocResolve.ContainerBuilder.Register(c => iocResolve)
+                .As<IIocResolver>()
+                .SingleInstance();
+
+            preBuild?.Invoke(iocResolve.ContainerBuilder);
+
+            var builder = iocResolve.Build();
+
+            return builder.Resolve<IIocResolver>();
         }
 
         private static void ConfigureAspNetCore(IServiceCollection services)
         {
             services.Configure<MvcOptions>(mvcOptions => mvcOptions.AddPlayFactory(services));
+        }
+
+        private static void AddPlayFactoryBootstrap(IIocResolver iocResolver)
+        {
+            var bootstrap = PlayFactoryBootstrapper.Create(iocResolver);
+            bootstrap.Initialize();
         }
     }
 }
