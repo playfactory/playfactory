@@ -3,14 +3,8 @@ using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Options;
 using PlayFactory.AspNetCore.Mvc.Extensions;
-using PlayFactory.EFCore;
-using PlayFactory.Events.Bus;
 using PlayFactory.IoC;
-using PlayFactory.Modules;
 
 namespace PlayFactory.AspNetCore.Extensions
 {

@@ -46,22 +46,6 @@ namespace PlayFactory.Modules
         /// </summary>
         public void LoadModules()
         {
-            //var type = typeof(PlayFactoryModule);
-
-            //var deps = DependencyContext.Default.RuntimeLibraries;
-
-            //foreach (var compilationLibrary in deps)
-            //{
-            //    var assembly = Assembly.Load(new AssemblyName(compilationLibrary.Name));
-
-            //    var modules = assembly.GetTypes().Where(t => t != type && type.IsAssignableFrom(t))
-            //                    .Select(t => (IPlayFactoryModule)Activator.CreateInstance(t));
-
-            //    var modulesAutoLoad = modules.Where(m => m.AutoLoad());
-
-            //    Add(modulesAutoLoad);
-            //}
-
             var type = typeof(PlayFactoryModule);
 
             AppDomain.GetAssemblies(assembly =>
