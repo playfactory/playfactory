@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PlayFactory.EFCore.UnitOfWork;
+using PlayFactory.Events.Bus;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,7 +13,7 @@ namespace Exemplos.WebApi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        public ValuesController(IUnitOfWork unitOfWork)
+        public ValuesController(IEventBus eventBus)
         {
             
         }

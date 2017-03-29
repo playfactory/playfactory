@@ -56,11 +56,5 @@ namespace PlayFactory.AspNetCore.Extensions
             var bootstrap = PlayFactoryBootstrapper.Create(iocResolver);
             bootstrap.Initialize();
         }
-
-        private static void AddLogger()
-        {
-            //var logger = loggerFactory.CreateLogger("PlayFactory");
-            //logger.LogInformation("Teste Information");
-        }
     }
 }

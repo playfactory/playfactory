@@ -54,18 +54,21 @@ namespace PlayFactory.IoC.Extensions
                 .Where(t => !typeof(IEventHandler).IsAssignableFrom(t))
                 .AssignableTo<IInstancePerLifetimeScopeDependency>()
                 .AsImplementedInterfaces()
+                .PropertiesAutowired()
                 .InstancePerLifetimeScope();
 
             container.RegisterAssemblyTypes(assemblyExecuting)
                 .Where(t => !typeof(IEventHandler).IsAssignableFrom(t))
                 .AssignableTo<IInstancePerDependency>()
                 .AsImplementedInterfaces()
+                .PropertiesAutowired()
                 .InstancePerDependency();
 
             container.RegisterAssemblyTypes(assemblyExecuting)
                .Where(t => !typeof(IEventHandler).IsAssignableFrom(t))
                .AssignableTo<ISingleInstanceDependency>()
                .AsImplementedInterfaces()
+               .PropertiesAutowired()
                .SingleInstance();
         }
     }

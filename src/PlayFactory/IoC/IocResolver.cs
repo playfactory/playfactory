@@ -5,10 +5,14 @@ namespace PlayFactory.IoC
 {
     public class IocResolver : IIocResolver
     {
+        private static IocResolver _iocResolver;
 
-        public static IocResolver Instance  => new IocResolver(new ContainerBuilder());
+        public static IocResolver Instance => _iocResolver ?? (_iocResolver = new IocResolver(new ContainerBuilder()));
+
         public IContainer Builder { get; private set; }
         public ContainerBuilder ContainerBuilder { get; }
+
+      
 
         public IocResolver(ContainerBuilder containerBuilder)
         {

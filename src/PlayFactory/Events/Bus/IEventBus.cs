@@ -2,13 +2,14 @@ using System;
 using System.Threading.Tasks;
 using PlayFactory.Events.Bus.Factories;
 using PlayFactory.Events.Bus.Handlers;
+using PlayFactory.IoC;
 
 namespace PlayFactory.Events.Bus
 {
     /// <summary>
     /// Defines interface of the event bus.
     /// </summary>
-    public interface IEventBus
+    public interface IEventBus : ISingleInstanceDependency
     {
         #region Register
 
