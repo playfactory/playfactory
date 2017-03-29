@@ -24,7 +24,7 @@ namespace PlayFactory.Events.Bus
         /// <summary>
         /// Gets the default <see cref="EventBus"/> instance.
         /// </summary>
-        public static EventBus Instance { get; } = new EventBus();
+        public static EventBus Instance { get; } = new EventBus(NullLogger.Instance);
 
         /// <summary>
         /// Reference to the Logger.
@@ -44,11 +44,11 @@ namespace PlayFactory.Events.Bus
         /// Creates a new <see cref="EventBus"/> instance.
         /// Instead of creating a new instace, you can use <see cref="Instance"/> to use Global <see cref="EventBus"/>.
         /// </summary>
-        public EventBus()
+        public EventBus(ILogger<EventBus> logger)
         {
             _handlerFactories = new ConcurrentDictionary<Type, List<IEventHandlerFactory>>();
             _preRegisterHandlers = new List<PreRegisterHandler>();
-            Logger = NullLogger.Instance;
+            Logger = logger;
         }
 
         /// <inheritdoc/>

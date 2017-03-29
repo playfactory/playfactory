@@ -22,9 +22,9 @@ namespace PlayFactory.Modules
         /// </summary>
         public List<IPlayFactoryModule> Modules { get; }
 
-        public PlayFactoryModules()
+        public PlayFactoryModules(ILogger<PlayFactoryModules> logger)
         {
-            _logger = NullLogger.Instance; 
+            _logger = logger; 
             Modules = new List<IPlayFactoryModule>();
         }
 
@@ -53,7 +53,7 @@ namespace PlayFactory.Modules
         {
             var type = typeof(PlayFactoryModule);
 
-            _logger.LogDebug("Initiating loading of the modules.");
+            _logger.LogInformation("Initiating loading of the modules.");
 
             try
             {
@@ -73,7 +73,7 @@ namespace PlayFactory.Modules
                 throw;
             }
 
-            _logger.LogDebug("{0} modules loaded.", Modules.Count);
+            _logger.LogInformation("{0} modules loaded.", Modules.Count);
         }
 
         /// <summary>
@@ -83,13 +83,21 @@ namespace PlayFactory.Modules
         /// <param name="container">ContainerIoC que será utilizado pelos módulos.</param>
         public void Initialize(ContainerBuilder container)
         {
-            _logger.LogDebug("Initiating the registration of Modules in the IoC Container.");
-            foreach (var module in Modules)
+            try
             {
-                _logger.LogDebug("Registrando o módulo {0}.", module.GetType().FullName);
-                container.RegisterModule(module);
+                _logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
+                foreach (var module in Modules)
+                {
+                    _logger.LogInformation("Registrando o módulo {0}.", module.GetType().FullName);
+                    container.RegisterModule(module);
+                }
+                _logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
             }
-            _logger.LogDebug("Initiating the registration of Modules in the IoC Container.");
+            catch (Exception e)
+            {
+                _logger.LogError("The following error occurred while register the module: ", e.Message);
+                throw;
+            }
         }
     }
 }

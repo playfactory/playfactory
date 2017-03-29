@@ -9,8 +9,6 @@ namespace PlayFactory
 {
     public class PlayFactoryBootstrapper
     {
-        private ILogger _logger;
-
         /// <summary>Gets IocResolver object used by this class.</summary>
         public IIocResolver IocResolver { get; }
 
@@ -19,7 +17,6 @@ namespace PlayFactory
             Check.NotNull(iocResolver, "iocResolver");
 
             IocResolver = iocResolver;
-            _logger = NullLogger.Instance;
         }
 
         public static PlayFactoryBootstrapper Create(IIocResolver iocResolver)
