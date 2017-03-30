@@ -9,15 +9,15 @@ using PlayFactory.IoC;
 namespace PlayFactory.AspNetCore.Extensions
 {
     /// <summary>
-    /// Help responsável por adicionar os serviços do PlayFactory a aplicação
+    /// Help responsible for adding the PlayFactory services to the application
     /// </summary>
     public static class PlayFactoryServiceCollectionExtensions
     {
         /// <summary>
-        /// Adiciona o PlayFactory a Aplicação ASP.NET Core e defini as configurações de inicialização do PlayFactory.
+        /// Adds the PlayFactory to the ASP.NET Core Application and sets the PlayFactory startup settings.
         /// </summary>
-        /// <param name="services">Objeto Help</param>
-        /// <returns>Retorna o Provider do Autofac para controle do IoC</returns>
+        /// <param name="services">Service Collection</param>
+        /// <returns>Returns the Autofac Provider for IoC control</returns>
         public static IServiceProvider AddPlayFactory(this IServiceCollection services)
         {
             var iocResolve = AddAutofac((container, resolve) =>

@@ -18,11 +18,13 @@ namespace PlayFactory.EFCore.Repository
         {
         }
 
+        /// <inheritdoc />
         public async Task<TEntity> FirstOrDefaultAsync(TPrimaryKey id)
         {
             return await GetAll().FirstOrDefaultAsync(CreateEqualityExpressionForId(id));
         }
 
+        /// <inheritdoc />
         public TPrimaryKey CreateAndGetId(TEntity entity)
         {
             entity = Create(entity);
@@ -35,6 +37,7 @@ namespace PlayFactory.EFCore.Repository
             return entity.Id;
         }
 
+        /// <inheritdoc />
         public async Task<TPrimaryKey> CreateAndGetIdAsync(TEntity entity)
         {
             entity = await CreateAsync(entity);
@@ -47,6 +50,7 @@ namespace PlayFactory.EFCore.Repository
             return entity.Id;
         }
 
+        /// <inheritdoc />
         public virtual TEntity CreateOrUpdate(TEntity entity)
         {
             return entity.IsTransient()
@@ -54,6 +58,7 @@ namespace PlayFactory.EFCore.Repository
                 : Update(entity);
         }
 
+        /// <inheritdoc />
         public virtual async Task<TEntity> CreateOrUpdateAsync(TEntity entity)
         {
             return entity.IsTransient()
@@ -61,6 +66,7 @@ namespace PlayFactory.EFCore.Repository
                 : await UpdateAsync(entity);
         }
 
+        /// <inheritdoc />
         public TPrimaryKey CreateOrUpdateAndGetId(TEntity entity)
         {
             entity = CreateOrUpdate(entity);
@@ -73,6 +79,7 @@ namespace PlayFactory.EFCore.Repository
             return entity.Id;
         }
 
+        /// <inheritdoc />
         public async Task<TPrimaryKey> CreateOrUpdateAndGetIdAsync(TEntity entity)
         {
             entity = await CreateOrUpdateAsync(entity);
@@ -83,8 +90,9 @@ namespace PlayFactory.EFCore.Repository
             }
 
             return entity.Id;
-        }  
+        }
 
+        /// <inheritdoc />
         public void Delete(TPrimaryKey id)
         {
             var entity = GetFromChangeTrackerOrNull(id);
@@ -103,6 +111,7 @@ namespace PlayFactory.EFCore.Repository
             //Could not found the entity, do nothing.
         }
 
+        /// <inheritdoc />
         public virtual TEntity Get(TPrimaryKey id)
         {
             var entity = FirstOrDefault(id);
@@ -114,16 +123,19 @@ namespace PlayFactory.EFCore.Repository
             return entity;
         }
 
+        /// <inheritdoc />
         public virtual TEntity FirstOrDefault(TPrimaryKey id)
         {
             return GetAll().FirstOrDefault(CreateEqualityExpressionForId(id));
         }
 
+        /// <inheritdoc />
         public virtual async Task<TEntity> GetAsync(TPrimaryKey id)
         {
             return await FirstOrDefaultAsync(id);
         }
 
+        /// <inheritdoc />
         private TEntity GetFromChangeTrackerOrNull(TPrimaryKey id)
         {
             var entry = Context.ChangeTracker.Entries()
@@ -136,12 +148,14 @@ namespace PlayFactory.EFCore.Repository
             return entry?.Entity as TEntity;
         }
 
+        /// <inheritdoc />
         public Task DeleteAsync(TPrimaryKey id)
         {
             Delete(id);
             return Task.FromResult(0);
         }
 
+        /// <inheritdoc />
         public virtual TEntity Update(TPrimaryKey id, Action<TEntity> updateAction)
         {
             var entity = Get(id);
@@ -149,6 +163,7 @@ namespace PlayFactory.EFCore.Repository
             return entity;
         }
 
+        /// <inheritdoc />
         public virtual async Task<TEntity> UpdateAsync(TPrimaryKey id, Func<TEntity, Task> updateAction)
         {
             var entity = Get(id);
@@ -156,6 +171,11 @@ namespace PlayFactory.EFCore.Repository
             return entity;
         }
 
+        /// <summary>
+        /// Create an expression by evaluating whether the entity ID is equal to the Id passed as a parameter.
+        /// </summary>
+        /// <param name="id">Id utilizado pelo filtro.</param>
+        /// <returns>Expression with Filter By Id.</returns>
         protected static Expression<Func<TEntity, bool>> CreateEqualityExpressionForId(TPrimaryKey id)
         {
             var lambdaParam = Expression.Parameter(typeof(TEntity));

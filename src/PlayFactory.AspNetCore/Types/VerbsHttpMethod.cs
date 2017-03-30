@@ -1,7 +1,7 @@
 ﻿namespace PlayFactory.AspNetCore.Types
 {
     /// <summary>
-    /// Verbos Http
+    /// Verbs Http
     /// </summary>
     public enum VerbsHttpMethod
     {

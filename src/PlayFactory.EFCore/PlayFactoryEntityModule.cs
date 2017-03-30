@@ -7,6 +7,9 @@ using PlayFactory.Repository;
 
 namespace PlayFactory.EFCore
 {
+    /// <summary>
+    /// Module PlayFactoryEntityModule
+    /// </summary>
     public class PlayFactoryEntityModule : PlayFactoryModule
     {
         protected override void Load(ContainerBuilder builder)

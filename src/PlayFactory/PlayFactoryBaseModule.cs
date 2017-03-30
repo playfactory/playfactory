@@ -11,7 +11,10 @@ using PlayFactory.Reflection.Extensions;
 
 namespace PlayFactory
 {
-    public class PlayFactoryBaseModule : PlayFactoryModule
+    /// <summary>
+    /// PlayFactor module.
+    /// </summary>
+    internal class PlayFactoryBaseModule : PlayFactoryModule
     {
         protected override void Load(ContainerBuilder builder)
         {

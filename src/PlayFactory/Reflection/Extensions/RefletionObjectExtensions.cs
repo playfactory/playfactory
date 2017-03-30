@@ -5,15 +5,15 @@ using Microsoft.Extensions.DependencyModel;
 namespace PlayFactory.Reflection.Extensions
 {
     /// <summary>
-    /// Class Helper para Assembly e Type.
+    /// Class Helper for Assembly and Type.
     /// </summary>
     public static class RefletionObjectExtensions
     {
         /// <summary>
-        /// Retorna o Assembly que a classe do objeto pertence.
+        /// Returns the Assembly that the class of the object belongs to.
         /// </summary>
-        /// <param name="obj">Objeto Help</param>
-        /// <returns>Assembly da classe do objeto.</returns>
+        /// <param name="obj">Help Object</param>
+        /// <returns>Assembly of the object class.</returns>
         public static Assembly GetExecutingAssembly(this object obj)
         {
             var type = obj.GetType();

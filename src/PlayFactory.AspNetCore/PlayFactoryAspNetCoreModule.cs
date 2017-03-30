@@ -5,6 +5,9 @@ using PlayFactory.Reflection.Extensions;
 
 namespace PlayFactory.AspNetCore
 {
+    /// <summary>
+    /// Asp.Net Core PlayFactory Module
+    /// </summary>
     public class PlayFactoryAspNetCoreModule : PlayFactoryModule
     {
         protected override void Load(ContainerBuilder builder)

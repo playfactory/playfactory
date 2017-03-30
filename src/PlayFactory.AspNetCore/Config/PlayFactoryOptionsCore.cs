@@ -6,13 +6,13 @@ using PlayFactory.AspNetCore.Types;
 namespace PlayFactory.AspNetCore.Config
 {
     /// <summary>
-    /// Classe de Configuração para o PlayFactory ASP.NET Core
+    /// Configuration Class for the ASP.NET Core PlayFactory
     /// </summary>
     public class PlayFactoryOptionsCore : IPlayFactoryOptionsCore
     {
         /// <summary>
-        /// Define os verbos que iniciará um controle de transação. Por Padrão o Controle de transação será iniciado
-        /// para os verbos http: Post, Put, Update e Delete. 
+        /// Defines verbs that initiate a transaction control. By default transaction control will start
+        /// For the verbs http: Post, Put, Update e Delete. 
         /// </summary>
         public IEnumerable<VerbsHttpMethod> AllowTransactionVerbsHttp { get; set; }
 

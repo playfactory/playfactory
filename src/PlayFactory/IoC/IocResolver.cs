@@ -3,6 +3,9 @@ using Autofac;
 
 namespace PlayFactory.IoC
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class IocResolver : IIocResolver
     {
         private static IocResolver _iocResolver;

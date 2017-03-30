@@ -1,9 +1,9 @@
 ﻿namespace PlayFactory.IoC
 {
     /// <summary>
-    /// Todas as clases que implementem esta interface poderão ser injetadas pelo Autofac, sendo instânciadas uma por aplicação.
+    /// All classes that implement the interface will be injected by Autofac, being instantiated one per application (Pattern Singleton).
     /// </summary>
-    /// <remarks>O uso dessa interface é a penas por convenção do PlayFactory.</remarks>
+    /// <remarks>The use of this interface is only by PlayFactory convention.</remarks>
     public interface ISingleInstanceDependency : IResolveIoCInstance
     {
     }

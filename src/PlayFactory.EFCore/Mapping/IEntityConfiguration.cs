@@ -6,46 +6,46 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace PlayFactory.EFCore.Mapping
 {
     /// <summary>
-    /// Interface de Configuração de mapeamento do EntityFramework
+    /// EntityFramework Mapping Configuration Interface.
     /// </summary>
     public interface IEntityConfiguration
     {
         /// <summary>
-        /// Deverá ser implementado a configuração de Mapeamento do EntityFramework.
+        ///The EntityFramework Mapping configuration should be implemented.
         /// </summary>
         void Configuration();
         /// <summary>
-        /// Método para inicializar o mapeamento do EntityFramework.
+        /// Method to initialize EntityFramework mapping.
         /// </summary>
-        /// <param name="modelBuilder">MOdelBuilder do DbContext</param>
-        /// <returns>Retorna a interface fluent de Configuração do Mapeamento.</returns>
+        /// <param name="modelBuilder">DbContext ModelBuilder</param>
+        /// <returns>Returns the fluent Mapping Configuration interface.</returns>
         IEntityConfiguration Initialize(ModelBuilder modelBuilder);
     }
 
     /// <summary>
     /// Interface deConfiguração do Mapeamento do EntityFramework.
     /// </summary>
-    /// <typeparam name="TEntity">Entidade que será configurada.</typeparam>
+    /// <typeparam name="TEntity">Entity that will be configured.</typeparam>
     public interface IEntityConfiguration<TEntity> : IEntityConfiguration where TEntity : class
     {
         /// <summary>
-        /// Mepamento da propriedade da entidade.
+        /// Mapping of entity property.
         /// </summary>
-        /// <typeparam name="TProperty">Tipo da propriedade mapeada.</typeparam>
-        /// <param name="propertyExpression">Definição da propriedade</param>
-        /// <returns>Retorna a configuração da propriedade</returns>
+        /// <typeparam name="TProperty">Type of mapped property.</typeparam>
+        /// <param name="propertyExpression">Property definition</param>
+        /// <returns>Return property configuration</returns>
         PropertyBuilder<TProperty> Property<TProperty>(Expression<Func<TEntity, TProperty>> propertyExpression);
         /// <summary>
-        /// Define o nome da tabela que a entidade representa.
+        /// Sets the name of the table that the entity represents.
         /// </summary>
-        /// <param name="name">Nome da tabela</param>
-        /// <returns>Retorna a configuração da tabela</returns>
+        /// <param name="name">Table Name.</param>
+        /// <returns>Return table configuration.</returns>
         EntityTypeBuilder<TEntity> ToTable(string name);
         /// <summary>
-        /// Define a propriedade que será a chave primária da tabela.
+        /// Sets the property that will be the primary key of the table.
         /// </summary>
-        /// <param name="keyExpression">Propriedade que representa a chave primária.</param>
-        /// <returns>Retorna a configuração da chave primária.</returns>
+        /// <param name="keyExpression">Property that represents the primary key.</param>
+        /// <returns>Return the configuration of the primary key.</returns>
         KeyBuilder HasKey(Expression<Func<TEntity, object>> keyExpression); 
     }
 }

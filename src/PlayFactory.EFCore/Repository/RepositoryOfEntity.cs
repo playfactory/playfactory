@@ -4,6 +4,7 @@ using PlayFactory.Repository;
 
 namespace PlayFactory.EFCore.Repository
 {
+    /// <inheritdoc />
     public class RepositoryOfEntity<TEntity>: RepositoryOfEntityWithPrimaryKey<TEntity, int>, IRepository<TEntity>
         where TEntity : class, IEntity<int>
     {

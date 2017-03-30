@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PlayFactory.AspNetCore.Config;
-using PlayFactory.AspNetCore.Filters.Extensions;
-using Microsoft.AspNetCore.Mvc.Abstractions;
+using PlayFactory.AspNetCore.Mvc.Filters.Extensions;
 using PlayFactory.EFCore.UnitOfWork;
 
-namespace PlayFactory.AspNetCore.Filters
+namespace PlayFactory.AspNetCore.Mvc.Filters
 {
     /// <summary>
-    /// Filtro que implementa o UnitOfWork.
+    /// Filter that implements UnitOfWork.
     /// </summary>
     public class UnitOfWorkAttribute : TypeFilterAttribute
     {

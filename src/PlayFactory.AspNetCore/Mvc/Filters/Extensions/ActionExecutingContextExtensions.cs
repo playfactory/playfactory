@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PlayFactory.AspNetCore.Exceptions;
 using PlayFactory.AspNetCore.Types;
 
-namespace PlayFactory.AspNetCore.Filters.Extensions
+namespace PlayFactory.AspNetCore.Mvc.Filters.Extensions
 {
     /// <summary>
-    /// Help para a classe ActionExecutingContext
+    ///Help for the ActionExecutingContext class
     /// </summary>
     public static class ActionExecutingContextExtensions
     {
         /// <summary>
-        /// Retorna um VerbsHttpMethod correspondente com o verbo utilizado na requisição.
+        /// Return a corresponding VerbsHttpMethod with the verb used in the request.
         /// </summary>
-        /// <param name="context">Help</param>
-        /// <returns>Retorna VerbsHttpMethod correspondente a requisição.</returns>
+        /// <param name="context">ActionExecutingContext</param>
+        /// <returns>Return VerbsHttpMethod corresponding to the request.</returns>
         public static VerbsHttpMethod GetVerbs(this ActionExecutingContext context)
         {
             var method = context.HttpContext.Request.Method;

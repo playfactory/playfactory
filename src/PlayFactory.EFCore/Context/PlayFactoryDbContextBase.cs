@@ -9,7 +9,7 @@ using PlayFactory.Reflection.Extensions;
 namespace PlayFactory.EFCore.Context
 {
     /// <summary>
-    /// DbContext Base para o PLayFactory.
+    /// DbContext Base for PlayFactory.
     /// </summary>
     public class PlayFactoryDbContextBase : DbContext
     {
@@ -24,7 +24,7 @@ namespace PlayFactory.EFCore.Context
         }
 
         /// <summary>
-        /// Método responsável por carregar as classes EntityTypeConfiguration com as definições de mapeamentos.
+        /// Method responsible for loading the EntityTypeConfiguration classes with the mappings definitions.
         /// </summary>
         /// <param name="modelBuilder">ModelBuilder</param>
         protected void LoadEntityTypeConfigurarion(ModelBuilder modelBuilder)

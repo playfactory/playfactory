@@ -5,6 +5,9 @@ using PlayFactory.Modules;
 
 namespace PlayFactory
 {
+    /// <summary>
+    /// Bootstrap class from PlayFactory.
+    /// </summary>
     public class PlayFactoryBootstrapper
     {
         /// <summary>Gets IocResolver object used by this class.</summary>

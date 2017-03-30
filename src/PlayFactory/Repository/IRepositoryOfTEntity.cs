@@ -3,7 +3,7 @@
 namespace PlayFactory.Repository
 {
     /// <summary>
-    /// Interface base para as entidades que o Id é int.
+    /// Base interface for the entities that the Id is int.
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     public interface IRepository<TEntity> : IRepository<TEntity, int> where TEntity : class, IEntity<int>

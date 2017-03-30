@@ -4,7 +4,7 @@ using PlayFactory.EFCore.Context;
 namespace PlayFactory.EFCore.UnitOfWork
 {
     /// <summary>
-    /// Classe de implementação do padrão Unit Of Work responsável pelo controle de transação da aplicação.
+    /// Implementation class of the Unit Of Work standard responsible for the application transaction control.
     /// </summary>
     public class UnitOfWork : IUnitOfWork
     {

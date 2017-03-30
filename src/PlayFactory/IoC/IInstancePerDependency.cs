@@ -1,10 +1,11 @@
 ﻿namespace PlayFactory.IoC
 {
     /// <summary>
-    /// Todas as clases que implementem esta interface poderão ser injetadas pelo Autofac, sendo instânciadas por solicitação.
+    /// All classes that implement the interface can be injected by Autofac, being instantiated by request of the instance.
     /// </summary>
-    /// <remarks>O uso dessa interface é a penas por convenção do PlayFactory.</remarks>
+    /// <remarks>The use of this interface is only by PlayFactory convention.</remarks>
     public interface IInstancePerDependency : IResolveIoCInstance
     {
+
     }
 }

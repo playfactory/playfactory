@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace PlayFactory.EFCore.Mapping
 {
     /// <summary>
-    /// Classe base para as classes de mapeamento das entidades.
+    /// Base class for entity mapping classes.
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     public abstract class EntityConfiguration<TEntity> : IEntityConfiguration<TEntity> where TEntity : class
@@ -14,7 +14,7 @@ namespace PlayFactory.EFCore.Mapping
         private EntityTypeBuilder<TEntity> _builder;
 
         /// <summary>
-        /// Retorna o EntityTypeBuilder.
+        /// Returns the EntityTypeBuilder.
         /// </summary>
         /// <returns>EntityTypeBuilder</returns>
         protected EntityTypeBuilder<TEntity> GetBuilder()
@@ -26,7 +26,7 @@ namespace PlayFactory.EFCore.Mapping
         }
 
         /// <summary>
-        /// Classe que será executada quando for inicializado a configuração do EntityConfiguration
+        /// Class that will be executed when the EntityConfiguration configuration is initialized
         /// </summary>
         /// <param name="modelBuilder"></param>
         /// <returns></returns>
@@ -37,38 +37,38 @@ namespace PlayFactory.EFCore.Mapping
         }
 
         /// <summary>
-        /// Configuração da Property.
+        /// Setting the Property.
         /// </summary>
-        /// <typeparam name="TProperty">Type da Property.</typeparam>
-        /// <param name="propertyExpression">Expression que define a property mapeada.</param>
-        /// <returns>Retorna um PropertyBuilder para configuração da property.</returns>
+        /// <typeparam name="TProperty">Type of Property.</typeparam>
+        /// <param name="propertyExpression">An expression that defines the mapped property.</param>
+        /// <returns>Returns a PropertyBuilder for property configuration.</returns>
         public PropertyBuilder<TProperty> Property<TProperty>(Expression<Func<TEntity, TProperty>> propertyExpression)
         {
             return GetBuilder().Property(propertyExpression);
         }
 
         /// <summary>
-        /// Define o nome da tabela.
+        /// Sets the name of the table.
         /// </summary>
-        /// <param name="name">Nome da tabela</param>
-        /// <returns>Retorna o EntityTypeBuilder com a configuração da tabela.</returns>
+        /// <param name="name">Table Name</param>
+        /// <returns>Returns the EntityTypeBuilder with the table configuration.</returns>
         public EntityTypeBuilder<TEntity> ToTable(string name)
         {
             return GetBuilder().ToTable(name);
         }
 
         /// <summary>
-        /// Define a chave primária da entidade.
+        /// Defines the primary key of the entity.
         /// </summary>
-        /// <param name="keyExpression">Empression que determina a chave primária.</param>
-        /// <returns>Retorna a configuração da Chave Primária.</returns>
+        /// <param name="keyExpression">Expression that determines the primary key.</param>
+        /// <returns>Return the Primary Key configuration.</returns>
         public KeyBuilder HasKey(Expression<Func<TEntity, object>> keyExpression)
         {
             return GetBuilder().HasKey(keyExpression);
         }
 
         /// <summary>
-        /// Deverá ser implementado com a configuração de Mapeamento da entidade.
+        /// It should be implemented with the Entity Mapping setting.
         /// </summary>
         public abstract void Configuration();
 

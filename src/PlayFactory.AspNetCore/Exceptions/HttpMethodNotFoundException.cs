@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using PlayFactory.Exceptions;
 
 namespace PlayFactory.AspNetCore.Exceptions
 {
     /// <summary>
-    /// Exceção é será disparada um Verbo Http Não for encontrado.
+    /// Exception is will be fired an Http Verb Not Found.
     /// </summary>
     public class HttpMethodNotFoundException : PlayFactoryException
     {

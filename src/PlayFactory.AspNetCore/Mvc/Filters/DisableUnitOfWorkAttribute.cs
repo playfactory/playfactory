@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace PlayFactory.AspNetCore.Filters
+namespace PlayFactory.AspNetCore.Mvc.Filters
 {
     /// <summary>
-    /// Filter que desabilita o UnitOfWork da Controller e/ou da Action.
+    /// Filter that disables Controller and / or Action UnitOfWork.
     /// </summary>
     public class DisableUnitOfWorkAttribute : ActionFilterAttribute
     {

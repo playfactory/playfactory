@@ -3,10 +3,11 @@
 namespace PlayFactory.Modules
 {
     /// <summary>
-    /// Esta classe pode ser usada como uma classe base para os módulos da aplicação.
+    /// This class can be used as a base class for the application modules.
     /// </summary>
     public abstract class PlayFactoryModule: Module, IPlayFactoryModule
     {  
+        /// <inheritdoc />
         public virtual bool AutoLoad()
         {
             return true;

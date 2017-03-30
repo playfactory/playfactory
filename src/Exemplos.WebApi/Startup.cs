@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PlayFactory;
 using PlayFactory.AspNetCore.Extensions;
-using PlayFactory.AspNetCore.Filters;
+using PlayFactory.AspNetCore.Mvc.Filters;
 using PlayFactory.EFCore.Context;
 using PlayFactory.IoC;
 

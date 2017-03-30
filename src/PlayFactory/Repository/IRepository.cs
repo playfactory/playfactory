@@ -3,7 +3,7 @@
 namespace PlayFactory.Repository
 {
     /// <summary>
-    /// Interface base para todos os repositórios.
+    /// Base interface for all repositories.
     /// </summary>
     public interface IRepository 
     {
@@ -11,27 +11,27 @@ namespace PlayFactory.Repository
         #region Aggregates
 
         /// <summary>
-        /// Este método retorna a quantidade da entidade que está no banco de dados.
+        /// This method returns the quantity of the entity that is in the database.
         /// </summary>
-        /// <returns>Retorna a quantidade das entidades.</returns>
+        /// <returns>Returns the number of entities.</returns>
         int Count();
 
         /// <summary>
-        /// Este método retorna a quantidade da entidade que está no banco de dados.
+        /// This method returns the amount of the entity that is in the database asynchronously.
         /// </summary>
-        /// <returns>Retorna a quantidade das entidades.</returns>
+        /// <returns>Returns the number of entities.</returns>
         Task<int> CountAsync();
 
         /// <summary>
-        /// Retorna se existe entidade no repositório.
+        /// Returns whether there is an entity in the repository.
         /// </summary>
-        /// <returns>Retorna se tem ou não entidade no repositório.</returns>
+        /// <returns>Returns whether or not there is an entity in the repository.</returns>
         bool Any();
 
         /// <summary>
-        /// Retorna se existe entidade no repositório de forma assíncrona.
+        /// Returns whether an entity exists in the repository asynchronously.
         /// </summary>
-        /// <returns>Retorna se tem ou não entidade no repositório.</returns>
+        /// <returns>Returns whether or not there is an entity in the repository.</returns>
         Task<bool> AnyAsync();
 
         #endregion

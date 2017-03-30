@@ -6,8 +6,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace PlayFactory.AspNetCore.Extensions
 {
+    /// <summary>
+    /// Class Help IApplicationBuilder. 
+    /// </summary>
     public static class PlayFactoryAppBuilderExtensions
     {
+        /// <summary>
+        ///Defines that the application will use the framework PlayFactory.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
         public static IApplicationBuilder UsePlayFactory(this IApplicationBuilder app)
         {
             InitializePlayFactory(app);

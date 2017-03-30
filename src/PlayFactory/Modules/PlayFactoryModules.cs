@@ -11,15 +11,13 @@ using PlayFactory.Reflection;
 namespace PlayFactory.Modules
 {
     /// <summary>
-    /// Classe que gerencia os módulos do PlayFactory
+    /// Class that manages the PlayFactory modules
     /// </summary>
     public class PlayFactoryModules : IPlayFactoryModules, ISingleInstanceDependency
     {
         public ILogger Logger { get; set; }
 
-        /// <summary>
-        /// Lista dos módulos adicionados na aplicação.
-        /// </summary>
+        /// <inheritdoc />
         public List<IPlayFactoryModule> Modules { get; }
 
         public PlayFactoryModules()
@@ -28,26 +26,19 @@ namespace PlayFactory.Modules
             Modules = new List<IPlayFactoryModule>();
         }
 
-        /// <summary>
-        /// Método para adicionar um módulo para aplicação
-        /// </summary>
-        /// <param name="module">Módulo que será adicionado a aplicação</param>
+        /// <inheritdoc />
         public void Add(IPlayFactoryModule module)
         {
             Modules.Add(module);
         }
 
-        /// <summary>
-        /// Método para adicionar uma lista de módulos para aplicação
-        /// </summary>
-        /// <param name="modules">Módulos que serão adicionados a aplicação</param>
+        /// <inheritdoc />
         public void Add(IEnumerable<IPlayFactoryModule> modules)
         {
             Modules.AddRange(modules);
         }
 
-        /// <summary>
-        /// Método que carrega todos os módulos da solutions e adiciona a aplicação
+        /// <inheritdoc />
         /// </summary>
         public void LoadModules()
         {
@@ -74,11 +65,7 @@ namespace PlayFactory.Modules
             Logger.LogInformation("{0} modules loaded.", Modules.Count);
         }
 
-        /// <summary>
-        /// Método que inicializa o gerenciado de módulos.  
-        /// </summary>
-        /// <remarks>Este método desencadeará a inicialização de todos os módulos adicionados a aplicação.</remarks>
-        /// <param name="container">ContainerIoC que será utilizado pelos módulos.</param>
+        /// <inheritdoc />
         public void Initialize(ContainerBuilder container)
         {
             try

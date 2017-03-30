@@ -5,20 +5,20 @@ using PlayFactory.IoC;
 namespace PlayFactory.EFCore.UnitOfWork
 {
     /// <summary>
-    /// Interface de implementação do padrão Unit Of Work responsável pelo controle de transação da aplicação.
+    /// Unit Of Work standard implementation interface responsible for the transaction control of the application.
     /// </summary>
     public interface IUnitOfWork : IInstancePerLifetimeScopeDependency, IDisposable
     {
         /// <summary>
-        /// Inicia o Controle de Transação.
+        /// Begin transaction in database
         /// </summary>
         void BeginTransaction();
         /// <summary>
-        /// Efetua o Commit da transação aberta pelo UnitOfWork.
+        /// Commit the transaction from the Unit Of Work.
         /// </summary>
         void Commit();
         /// <summary>
-        /// Efetua o Roolback da transação aberta pelo UnitOfWork.
+        /// Perform Rollback of the transaction opened by Unit Of Work.
         /// </summary>
         void Roolback();
         /// <summary>
@@ -27,11 +27,11 @@ namespace PlayFactory.EFCore.UnitOfWork
         /// <returns></returns>
         PlayFactoryDbContextBase GetDbContext();
         /// <summary>
-        /// Salva todas as alterações do Contexto do Banco de dados.
+        ///Saves all changes to the Database Context.
         /// </summary>
         void SaveChanges();
         /// <summary>
-        /// Salva todas as alterações do Contexto do Banco de dados de forma assíncrona.
+        /// Saves all changes to the Database Context asynchronously.
         /// </summary>
         void SaveChangesAsync();
     }
