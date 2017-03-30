@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using PlayFactory.Common;
 using PlayFactory.IoC;
 using PlayFactory.Modules;
@@ -54,12 +52,6 @@ namespace PlayFactory
                 moduleManager.LoadModules();
                 moduleManager.Initialize(container);
             });
-        }
-
-        private void RegisterLogger()
-        {
-            //var logger = loggerFactory.CreateLogger("PlayFactory");
-            //logger.LogInformation("Teste Information");
         }
     }
 }

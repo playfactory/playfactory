@@ -16,22 +16,21 @@ namespace PlayFactory.AspNetCore.Extensions
         /// <summary>
         /// Adiciona o PlayFactory a Aplicação ASP.NET Core e defini as configurações de inicialização do PlayFactory.
         /// </summary>
-        /// <param name="service">Objeto Help</param>
+        /// <param name="services">Objeto Help</param>
         /// <returns>Retorna o Provider do Autofac para controle do IoC</returns>
-        public static IServiceProvider AddPlayFactory(this IServiceCollection service)
+        public static IServiceProvider AddPlayFactory(this IServiceCollection services)
         {
-            var iocResolve = AddAutofac(container =>
+            var iocResolve = AddAutofac((container, resolve) =>
             {
-                container.Populate(service);
+                container.Populate(services);
+                ConfigureAspNetCore(services);
+                AddPlayFactoryBootstrap(resolve);
             });
 
-            ConfigureAspNetCore(service);
-            AddPlayFactoryBootstrap(iocResolve);
-
-            return iocResolve.Builder.Resolve<IServiceProvider>();
+            return new AutofacServiceProvider(iocResolve.Builder);
         }
 
-        private static IIocResolver AddAutofac(Action<ContainerBuilder> preBuild)
+        private static IIocResolver AddAutofac(Action<ContainerBuilder, IocResolver> preBuild)
         {
             var iocResolve = IocResolver.Instance;
 
@@ -39,7 +38,7 @@ namespace PlayFactory.AspNetCore.Extensions
                 .As<IIocResolver>()
                 .SingleInstance();
 
-            preBuild?.Invoke(iocResolve.ContainerBuilder);
+            preBuild?.Invoke(iocResolve.ContainerBuilder, iocResolve);
 
             var builder = iocResolve.Build();
 
@@ -54,7 +53,11 @@ namespace PlayFactory.AspNetCore.Extensions
         private static void AddPlayFactoryBootstrap(IIocResolver iocResolver)
         {
             var bootstrap = PlayFactoryBootstrapper.Create(iocResolver);
-            bootstrap.Initialize();
+            iocResolver.ContainerBuilder
+                .Register(c => bootstrap)
+                .PropertiesAutowired()
+                .AsSelf()
+                .SingleInstance();
         }
     }
 }

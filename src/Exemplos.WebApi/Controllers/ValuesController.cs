@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using PlayFactory.EFCore.UnitOfWork;
 using PlayFactory.Events.Bus;
 
@@ -13,15 +14,20 @@ namespace Exemplos.WebApi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        public ValuesController(IEventBus eventBus)
+        public ILogger<ValuesController> Logger { get; set; }
+
+        public ValuesController(ILogger<ValuesController> logger)
         {
-            
+            Logger = logger;
         }
 
         // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            Logger.LogDebug("Debug");
+            Logger.LogInformation("Information");
+            Logger.LogWarning("Warning");
             return new string[] { "value1", "value2" };
         }
 

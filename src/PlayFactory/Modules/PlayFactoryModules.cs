@@ -15,16 +15,16 @@ namespace PlayFactory.Modules
     /// </summary>
     public class PlayFactoryModules : IPlayFactoryModules, ISingleInstanceDependency
     {
-        private readonly ILogger _logger;
+        public ILogger Logger { get; set; }
 
         /// <summary>
         /// Lista dos módulos adicionados na aplicação.
         /// </summary>
         public List<IPlayFactoryModule> Modules { get; }
 
-        public PlayFactoryModules(ILogger<PlayFactoryModules> logger)
+        public PlayFactoryModules()
         {
-            _logger = logger; 
+            Logger = NullLogger.Instance;
             Modules = new List<IPlayFactoryModule>();
         }
 
@@ -52,9 +52,7 @@ namespace PlayFactory.Modules
         public void LoadModules()
         {
             var type = typeof(PlayFactoryModule);
-
-            _logger.LogInformation("Initiating loading of the modules.");
-
+            Logger.LogInformation("Initiating loading of the modules.");
             try
             {
                 AppDomain.GetAssemblies(assembly =>
@@ -69,11 +67,11 @@ namespace PlayFactory.Modules
             }
             catch (Exception e)
             {
-                _logger.LogError("The following error occurred while loading the module: ", e.Message);               
+                Logger.LogError("The following error occurred while loading the module: ", e.Message);               
                 throw;
             }
 
-            _logger.LogInformation("{0} modules loaded.", Modules.Count);
+            Logger.LogInformation("{0} modules loaded.", Modules.Count);
         }
 
         /// <summary>
@@ -85,17 +83,17 @@ namespace PlayFactory.Modules
         {
             try
             {
-                _logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
+                Logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
                 foreach (var module in Modules)
                 {
-                    _logger.LogInformation("Registrando o módulo {0}.", module.GetType().FullName);
+                    Logger.LogInformation("Registrando o módulo {0}.", module.GetType().FullName);
                     container.RegisterModule(module);
                 }
-                _logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
+                Logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
             }
             catch (Exception e)
             {
-                _logger.LogError("The following error occurred while register the module: ", e.Message);
+                Logger.LogError("The following error occurred while register the module: ", e.Message);
                 throw;
             }
         }

@@ -1,18 +1,30 @@
 ﻿using System;
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PlayFactory;
 using PlayFactory.AspNetCore.Extensions;
 using PlayFactory.AspNetCore.Filters;
 using PlayFactory.EFCore.Context;
+using PlayFactory.IoC;
 
 namespace Exemplos.WebApi
 {
     public class Startup
     {
+        public interface ITeste
+        {
+            
+        }
+        public class Teste : ITeste
+        {
+            
+        }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -28,6 +40,8 @@ namespace Exemplos.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<Teste>(new Teste());
+
             services.AddDbContext<PlayFactoryDbContextBase>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -43,10 +57,12 @@ namespace Exemplos.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            var a = IocResolver.Instance.Builder.Resolve<PlayFactoryBootstrapper>();
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-
+            app.UsePlayFactory();
 
             if (env.IsDevelopment())
             {
