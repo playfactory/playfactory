@@ -3,22 +3,22 @@
 namespace PlayFactory.Exceptions
 {
     /// <summary>
-    /// Classe utilizado para Exceptionda entidade
+    /// Class used for entity Exception
     /// </summary>
     public class EntityNotFoundException : PlayFactoryException
     {
         /// <summary>
-        /// Tipo da Entidade.
+        /// Entity Type.
         /// </summary>
         public Type EntityType { get; set; }
 
         /// <summary>
-        /// Id da entidade.
+        /// Entity ID.
         /// </summary>
         public object Id { get; set; }
 
         /// <summary>
-        /// Cria um novo <see cref="EntityNotFoundException"/> objeto.
+        /// Creates a new <see cref = "EntityNotFoundException" /> object.
         /// </summary>
         public EntityNotFoundException()
         {
@@ -26,7 +26,7 @@ namespace PlayFactory.Exceptions
         }
 
         /// <summary>
-        /// Cria um novo <see cref="EntityNotFoundException"/> objeto.
+        /// Creates a new <see cref = "EntityNotFoundException" /> object.
         /// </summary>
         public EntityNotFoundException(Type entityType, object id)
             : this(entityType, id, null)
@@ -35,7 +35,7 @@ namespace PlayFactory.Exceptions
         }
 
         /// <summary>
-        /// Cria um novo <see cref="EntityNotFoundException"/> objeto.
+        /// Creates a new <see cref = "EntityNotFoundException" /> object.
         /// </summary>
         public EntityNotFoundException(Type entityType, object id, Exception innerException)
             : base($"Não foi encontrado o registro. Entidade: {entityType.FullName}, id: {id}", innerException)
@@ -45,8 +45,7 @@ namespace PlayFactory.Exceptions
         }
 
         /// <summary>
-        /// Cria um novo <see cref="EntityNotFoundException"/> objeto.
-        /// </summary>
+        /// Creates a new <see cref = "EntityNotFoundException" /> object.
         /// <param name="message">Exception message</param>
         public EntityNotFoundException(string message)
             : base(message)
@@ -55,9 +54,9 @@ namespace PlayFactory.Exceptions
         }
 
         /// <summary>
-        /// Cria um novo <see cref="EntityNotFoundException"/> objeto.
+        ///Creates a new <see cref = "EntityNotFoundException" /> object.
         /// </summary>
-        /// <param name="message">Mensagem da Exception</param>
+        /// <param name="message">Message from Exception</param>
         /// <param name="innerException">Inner exception</param>
         public EntityNotFoundException(string message, Exception innerException)
             : base(message, innerException)

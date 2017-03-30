@@ -4,11 +4,18 @@ using System.Reflection;
 
 namespace PlayFactory.Entity
 {
+    /// <summary>
+    /// This class is used to define that a class is an Entity. The Id type is int.
+    /// </summary>
     public class Entity : Entity<int>, IEntity
     {
 
     }
 
+    /// <summary>
+    /// This class is used to define that a class is an Entity. When using it, the type of ID must be defined.
+    /// </summary>
+    /// <typeparam name="TPrimaryKey">Type of Entity Id..</typeparam>
     public class Entity<TPrimaryKey> : IEntity<TPrimaryKey>
     {
         public TPrimaryKey Id { get; set; }
@@ -37,7 +44,7 @@ namespace PlayFactory.Entity
 
         public override bool Equals(object obj)
         {
-            if (obj == null || !(obj is Entity<TPrimaryKey>))
+            if (!(obj is Entity<TPrimaryKey>))
             {
                 return false;
             }
@@ -64,6 +71,11 @@ namespace PlayFactory.Entity
             }
 
             return Id.Equals(other.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return EqualityComparer<TPrimaryKey>.Default.GetHashCode(Id);
         }
     }
 }

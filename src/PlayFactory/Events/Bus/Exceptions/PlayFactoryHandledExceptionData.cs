@@ -3,15 +3,15 @@
 namespace PlayFactory.Events.Bus.Exceptions
 {
     /// <summary>
-    /// This type of events are used to notify for exceptions handled by ABP infrastructure.
+    /// This type of events are used to notify for exceptions handled by PlayFactory infrastructure.
     /// </summary>
-    public class AbpHandledExceptionData : ExceptionData
+    public class PlayFactoryHandledExceptionData : ExceptionData
     {
         /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="exception">Exception object</param>
-        public AbpHandledExceptionData(Exception exception)
+        public PlayFactoryHandledExceptionData(Exception exception)
             : base(exception)
         {
 

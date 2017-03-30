@@ -12,7 +12,6 @@ using PlayFactory.Events.Bus.Factories.Internals;
 using PlayFactory.Events.Bus.Handlers;
 using PlayFactory.Events.Bus.Handlers.Internals;
 using PlayFactory.Extensions;
-using PlayFactory.IoC;
 
 namespace PlayFactory.Events.Bus
 {
@@ -38,8 +37,6 @@ namespace PlayFactory.Events.Bus
         /// </summary>
         private readonly ConcurrentDictionary<Type, List<IEventHandlerFactory>> _handlerFactories;
 
-        private readonly List<PreRegisterHandler> _preRegisterHandlers;
-
         /// <summary>
         /// Creates a new <see cref="EventBus"/> instance.
         /// Instead of creating a new instace, you can use <see cref="Instance"/> to use Global <see cref="EventBus"/>.
@@ -47,7 +44,6 @@ namespace PlayFactory.Events.Bus
         public EventBus()
         {
             _handlerFactories = new ConcurrentDictionary<Type, List<IEventHandlerFactory>>();
-            _preRegisterHandlers = new List<PreRegisterHandler>();
             Logger = NullLogger.Instance;
         }
 
@@ -315,20 +311,6 @@ namespace PlayFactory.Events.Bus
         private List<IEventHandlerFactory> GetOrCreateHandlerFactories(Type eventType)
         {
             return _handlerFactories.GetOrAdd(eventType, (type) => new List<IEventHandlerFactory>());
-        }
-
-        public void PreRegister(Type eventType, Type handlerType)
-        {
-            _preRegisterHandlers.Add(new PreRegisterHandler
-            {
-                EventType = eventType,
-                HandlerType = handlerType
-            });
-        }
-
-        public List<IDisposable> RegisterAllPreRegister(IocResolver resolver)
-        {
-            return _preRegisterHandlers.Select(pre => Register(pre.EventType, new IocHandlerFactory(resolver, pre.HandlerType))).ToList();
         }
 
         private class EventTypeWithEventHandlerFactories

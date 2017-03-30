@@ -9,15 +9,15 @@ using PlayFactory.Events.Bus.Handlers;
 namespace PlayFactory.IoC.Extensions
 {
     /// <summary>
-    /// Help para os módulos de aplicação registrar o IoC utilizando a convenção do PlayFactory.
+    /// Help for application modules to register IoC using the PlayFactory convention.
     /// </summary>
     public static class RegisterAssemblyByConvertional
     {
         /// <summary>
-        /// Registra no Container IoC as interfaces e classes que são padrões no PlayFactory
+        /// Log all classes and interfaces in the IoC Container using the PlayFactory convention.
         /// </summary>
-        /// <param name="container">Container do AutoFac</param>
-        /// <param name="assemblyExecuting">Assembly atual do módulo</param>
+        /// <param name="container">Container of AutoFac</param>
+        /// <param name="assemblyExecuting">Current module assembly</param>
         public static void RegisterIoCAssemblyTypesByConvertion(this ContainerBuilder container, Assembly assemblyExecuting)
         {
             Action<ComponentRegisteredEventArgs> onRegistered = (c) =>

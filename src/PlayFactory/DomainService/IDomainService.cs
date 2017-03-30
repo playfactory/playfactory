@@ -3,7 +3,7 @@
 namespace PlayFactory.DomainService
 {
     /// <summary>
-    /// Essa interface deve ser implementada por todos os serviços de domínio (Domain Service) para identificá-los por convenção.
+    /// This interface must be implemented by all Domain Services to identify them by convention.
     /// </summary>
     public interface IDomainService : IInstancePerDependency
     {

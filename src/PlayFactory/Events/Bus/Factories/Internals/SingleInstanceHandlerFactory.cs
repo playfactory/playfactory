@@ -17,7 +17,7 @@ namespace PlayFactory.Events.Bus.Factories.Internals
         public IEventHandler HandlerInstance { get; }
 
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
         /// <param name="handler"></param>
         public SingleInstanceHandlerFactory(IEventHandler handler)

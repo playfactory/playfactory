@@ -1,7 +1,7 @@
 ﻿namespace PlayFactory.Entity
 {
     /// <summary>
-    /// Interface base para as entidade com Id tipo Int.
+    /// Base interface for entities with Int.
     /// </summary>
     public interface IEntity : IEntity<int>
     {
@@ -9,18 +9,18 @@
     }
 
     /// <summary>
-    /// Interface base para as entidades com Id genérico.
+    /// Base interface for entities with generic Id.
     /// </summary>
     /// <typeparam name="TPrimaryKey"></typeparam>
     public interface IEntity<TPrimaryKey> 
     {
         /// <summary>
-        /// Id da entidade.
+        /// Entity ID.
         /// </summary>
         TPrimaryKey Id { get; set; }
 
         /// <summary>
-        /// Verifica se a entidade possui o Id com valor default ou foi atribuído um Id.
+        /// Checks whether the entity has the Id with default value or has been assigned an Id.
         /// </summary>
         /// <returns></returns>
         bool IsTransient();

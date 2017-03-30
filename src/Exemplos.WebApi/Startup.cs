@@ -57,8 +57,6 @@ namespace Exemplos.WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            var a = IocResolver.Instance.Builder.Resolve<PlayFactoryBootstrapper>();
-
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 

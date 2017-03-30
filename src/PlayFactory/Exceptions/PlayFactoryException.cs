@@ -3,12 +3,12 @@
 namespace PlayFactory.Exceptions
 {
     /// <summary>
-    /// Classe base para todas as exception do PlayFactory
+    /// Base class for all PlayFactory exception
     /// </summary>
     public class PlayFactoryException: Exception
     {
         /// <summary>
-        /// Cria um novo <see cref="PlayFactoryException"/> objeto.
+        /// Creates a new <see cref = "PlayFactoryException" /> object.
         /// </summary>
         public PlayFactoryException()
         {
@@ -16,7 +16,7 @@ namespace PlayFactory.Exceptions
         }
 
         /// <summary>
-        /// Cria um novo <see cref="PlayFactoryException"/> objeto.
+        /// Creates a new <see cref = "PlayFactoryException" /> object.
         /// </summary>
         /// <param name="message">Exception message</param>
         public PlayFactoryException(string message)
@@ -26,9 +26,9 @@ namespace PlayFactory.Exceptions
         }
 
         /// <summary>
-        /// Cria um novo <see cref="PlayFactoryException"/> objeto.
+        /// Creates a new <see cref = "PlayFactoryException" /> object.
         /// </summary>
-        /// <param name="message">Mensagem da Exception</param>
+        /// <param name="message">Message from exception</param>
         /// <param name="innerException">Inner exception</param>
         public PlayFactoryException(string message, Exception innerException)
             : base(message, innerException)

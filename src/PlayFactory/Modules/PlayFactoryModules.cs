@@ -86,10 +86,10 @@ namespace PlayFactory.Modules
                 Logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
                 foreach (var module in Modules)
                 {
-                    Logger.LogInformation("Registrando o módulo {0}.", module.GetType().FullName);
+                    Logger.LogDebug("Registering the {0} module in PlayFactoryModules.", module.GetType().FullName);
                     container.RegisterModule(module);
                 }
-                Logger.LogInformation("Initiating the registration of Modules in the IoC Container.");
+                Logger.LogInformation("{0} modules registered.", Modules.Count);
             }
             catch (Exception e)
             {

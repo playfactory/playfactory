@@ -3,15 +3,15 @@
 namespace PlayFactory.Extensions
 {
     /// <summary>
-    /// Método de extenção que ajuda no bloqueio (lock).
+    /// Extension method that helps in locking.
     /// </summary>
     public static class LockExtensions
     {
         /// <summary>
-        /// Executa a action <paramref name="action"/> quando o objeto <paramref name="source"/> não estiver bloqueado.
+        /// Executes the action <paramref name = "action" /> when the <paramref name = "source" /> object is not locked.
         /// </summary>
-        /// <param name="source">Objeto bloqueiado (locked).</param>
-        /// <param name="action">Action que será executada.</param>
+        /// <param name="source">Locked object.</param>
+        /// <param name="action">Action to be taken.</param>
         public static void Locking(this object source, Action action)
         {
             lock (source)
@@ -21,11 +21,11 @@ namespace PlayFactory.Extensions
         }
 
         /// <summary>
-        /// Executa a action <paramref name="action"/> quando o objeto <paramref name="source"/> não estiver bloqueado.
+        /// Executes the action <paramref name = "action" /> when the <paramref name = "source" /> object is not locked.
         /// </summary>
-        /// <typeparam name="T">Tipo do objeto bloqueado (locked)</typeparam>
-        /// <param name="source">Objeto bloqueiado (lock).</param>
-        /// <param name="action">Action que será executada.</param>
+        /// <typeparam name = "T"> Type of locked object </ typeparam>
+        /// <param name="source">Locked object.</param>
+        /// <param name="action">Action to be taken.</param>
         public static void Locking<T>(this T source, Action<T> action) where T : class
         {
             lock (source)
@@ -35,12 +35,12 @@ namespace PlayFactory.Extensions
         }
 
         /// <summary>
-        /// Executa a função <paramref name="func"/> quando o objeto <paramref name="source"/> não estiver bloqueado.
+        /// Executes the action <paramref name = "action" /> when the <paramref name = "source" /> object is not locked.
         /// </summary>
-        /// <typeparam name="TResult">Tipo do retorno.</typeparam>
-        /// <param name="source">Objeto bloqueiado (lock).</param>
-        /// <param name="func">Função que será executada.</param>
-        /// <returns>Retorna o valor da Função <paramref name="func"/></returns>
+        /// <typeparam name="TResult">Return type.</typeparam>
+        /// <param name="source">Locked object.</param>
+        /// <param name="func">Func to be taken.</param>
+        /// <returns>Returns the value of the function <paramref name = "func" />.</returns>
         public static TResult Locking<TResult>(this object source, Func<TResult> func)
         {
             lock (source)
@@ -50,13 +50,13 @@ namespace PlayFactory.Extensions
         }
 
         /// <summary>
-        /// Executa a função <paramref name="func"/> quando o objeto <paramref name="source"/> não estiver bloqueado.
+        /// Executes the action <paramref name = "func" /> when the <paramref name = "source" /> object is not locked.
         /// </summary>
-        /// <typeparam name="T">Tipo do objeto bloqueado (locked)</typeparam>
-        /// <typeparam name="TResult">Tipo do retorno.</typeparam>
-        /// <param name="source">Objeto bloqueiado (lock).</param>
-        /// <param name="func">Função que será executada.</param>
-        /// <returns>Retorna o valor da Função <paramref name="func"/></returns>
+        /// <typeparam name = "T"> Type of locked object </ typeparam>
+        /// <typeparam name="TResult">Return type.</typeparam>
+        /// <param name="source">Locked object.</param>
+        /// <param name="func">Func to be taken.</param>
+        /// <returns>Returns the value of the function <paramref name = "func" />.</returns>
         public static TResult Locking<T, TResult>(this T source, Func<T, TResult> func) where T : class
         {
             lock (source)
