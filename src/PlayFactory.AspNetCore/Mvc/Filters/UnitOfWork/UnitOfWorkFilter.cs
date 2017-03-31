@@ -12,7 +12,7 @@ namespace PlayFactory.AspNetCore.Mvc.Filters
     /// <summary>
     /// Filter that implements UnitOfWork.
     /// </summary>
-    public class UnitOfWorkFilter : IActionFilter, IUnitOfWorkFilter
+    public class UnitOfWorkFilter : IActionFilter
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPlayFactoryOptionsCore _options;
@@ -67,8 +67,8 @@ namespace PlayFactory.AspNetCore.Mvc.Filters
 
         private bool IsDisable(ActionDescriptor actionDescriptor)
         {
-            var countFilterDisable = actionDescriptor.FilterDescriptors.Count(f => typeof(IDisableUnitOfWorkFilter).IsAssignableFrom(f.Filter.GetType()));
-            var a = typeof(IUnitOfWorkFilter).IsAssignableFrom(actionDescriptor.FilterDescriptors[3].GetType());
+            //var countFilterDisable = actionDescriptor.FilterDescriptors.Count(f => typeof(IDisableUnitOfWorkFilter).IsAssignableFrom(f.Filter.GetType()));
+            //var a = typeof(IUnitOfWorkFilter).IsAssignableFrom(actionDescriptor.FilterDescriptors[3].GetType());
             return false;
         }
 

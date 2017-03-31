@@ -3,14 +3,17 @@ using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using PlayFactory;
 using PlayFactory.AspNetCore.Extensions;
 using PlayFactory.AspNetCore.Mvc.Extensions;
 using PlayFactory.AspNetCore.Mvc.Filters;
+using PlayFactory.AspNetCore.Mvc.Providers;
 using PlayFactory.EFCore.Context;
 using PlayFactory.IoC;
 
@@ -47,6 +50,8 @@ namespace Exemplos.WebApi
             services.AddDbContext<PlayFactoryDbContextBase>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.TryAddEnumerable(ServiceDescriptor.Singleton<IFilterProvider, OverrideFilterProvider>());
+
             //services.Configure<MvcOptions>(mvcOptions =>
             //{
             //    mvcOptions.AddPlayFactory(services);
@@ -55,7 +60,7 @@ namespace Exemplos.WebApi
             // Add framework services.
             services.AddMvc(o =>
             {
-                //o.Filters.Add(new UnitOfWorkAttribute());
+                o.Filters.Add(new DisableUnitOfWorkAttribute());
             });
 
             return services.AddPlayFactory();

@@ -9,6 +9,7 @@ namespace Exemplos.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [DisableUnitOfWork]
+    //[DisableUnitOfWork]
     public class ValuesController : Controller
     {
         public ILogger<ValuesController> Logger { get; set; }
@@ -20,6 +21,7 @@ namespace Exemplos.WebApi.Controllers
 
         // GET: api/values
         [HttpGet]
+        [DisableUnitOfWork]
         public IEnumerable<string> Get()
         {
             Logger.LogDebug("Debug");
