@@ -22,12 +22,14 @@ namespace PlayFactory.AspNetCore.Extensions
         {
             var iocResolve = AddAutofac((container, resolve) =>
             {
-                container.Populate(services);
                 ConfigureAspNetCore(services);
+
+                container.Populate(services);
+                
                 AddPlayFactoryBootstrap(resolve);
             });
 
-            return new AutofacServiceProvider(iocResolve.Builder);
+            return iocResolve.Builder.Resolve<IServiceProvider>();
         }
 
         private static IIocResolver AddAutofac(Action<ContainerBuilder, IocResolver> preBuild)
@@ -47,7 +49,10 @@ namespace PlayFactory.AspNetCore.Extensions
 
         private static void ConfigureAspNetCore(IServiceCollection services)
         {
-            services.Configure<MvcOptions>(mvcOptions => mvcOptions.AddPlayFactory(services));
+            services.Configure<MvcOptions>(mvcOptions =>
+            {
+                mvcOptions.AddPlayFactory(services);
+            });
         }
 
         private static void AddPlayFactoryBootstrap(IIocResolver iocResolver)
