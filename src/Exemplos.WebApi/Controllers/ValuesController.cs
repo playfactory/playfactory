@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PlayFactory.AspNetCore.Mvc.Filters;
+using PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,6 +26,7 @@ namespace Exemplos.WebApi.Controllers
         [DisableUnitOfWork]
         public IEnumerable<string> Get()
         {
+            throw new Exception("Erro de Teste.");
             Logger.LogDebug("Debug");
             Logger.LogInformation("Information");
             Logger.LogWarning("Warning");

@@ -13,6 +13,7 @@ using PlayFactory;
 using PlayFactory.AspNetCore.Extensions;
 using PlayFactory.AspNetCore.Mvc.Extensions;
 using PlayFactory.AspNetCore.Mvc.Filters;
+using PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork;
 using PlayFactory.AspNetCore.Mvc.Providers;
 using PlayFactory.EFCore.Context;
 using PlayFactory.IoC;

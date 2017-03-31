@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using PlayFactory.AspNetCore.Mvc.Filters;
+using PlayFactory.AspNetCore.Mvc.Filters.Exceptions;
+using PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork;
 
 namespace PlayFactory.AspNetCore.Mvc.Extensions
 {
@@ -22,6 +24,7 @@ namespace PlayFactory.AspNetCore.Mvc.Extensions
         private static void AddFilters(MvcOptions options)
         {
             options.Filters.Add(typeof(UnitOfWorkFilter));
+            options.Filters.Add(typeof(GlobalExceptionFilter));
         }
 
     }

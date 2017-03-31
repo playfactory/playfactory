@@ -10,7 +10,7 @@ namespace PlayFactory.Events.Bus
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<EventBus>()
+            builder.Register(c => EventBus.Instance)
                 .As<IEventBus>()
                 .PropertiesAutowired()
                 .SingleInstance();

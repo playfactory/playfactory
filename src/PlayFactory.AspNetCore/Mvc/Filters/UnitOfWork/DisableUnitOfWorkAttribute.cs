@@ -1,4 +1,4 @@
-﻿namespace PlayFactory.AspNetCore.Mvc.Filters
+﻿namespace PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork
 {
     /// <summary>
     /// Filter that disables Controller and / or Action UnitOfWork.

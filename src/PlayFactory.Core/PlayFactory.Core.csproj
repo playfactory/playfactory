@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PlayFactory.EFCore\PlayFactory.EFCore.csproj" />
+    <ProjectReference Include="..\PlayFactory\PlayFactory.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Entity\" />
+  </ItemGroup>
+
+</Project>

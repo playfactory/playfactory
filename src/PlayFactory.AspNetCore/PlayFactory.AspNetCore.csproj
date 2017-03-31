@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PlayFactory.Core\PlayFactory.Core.csproj" />
     <ProjectReference Include="..\PlayFactory.EFCore\PlayFactory.EFCore.csproj" />
     <ProjectReference Include="..\PlayFactory\PlayFactory.csproj" />
   </ItemGroup>

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PlayFactory.AspNetCore.Config;
 using PlayFactory.AspNetCore.Mvc.Filters.Extensions;
 using PlayFactory.EFCore.UnitOfWork;
 
-namespace PlayFactory.AspNetCore.Mvc.Filters
+namespace PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork
 {
     /// <summary>
     /// Filter that implements UnitOfWork.

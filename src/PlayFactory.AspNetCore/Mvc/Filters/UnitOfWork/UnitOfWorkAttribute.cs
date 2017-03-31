@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace PlayFactory.AspNetCore.Mvc.Filters
+namespace PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork
 {
     /// <summary>
     /// Attribute that implements UnitOfWork.

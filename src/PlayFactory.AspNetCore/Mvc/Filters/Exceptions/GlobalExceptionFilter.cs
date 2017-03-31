@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using PlayFactory.Events.Bus;
 using PlayFactory.Events.Bus.Exceptions;
 
-namespace PlayFactory.AspNetCore.Mvc.Filters
+namespace PlayFactory.AspNetCore.Mvc.Filters.Exceptions
 {
     public class GlobalExceptionFilter : IExceptionFilter
     {
@@ -22,7 +17,7 @@ namespace PlayFactory.AspNetCore.Mvc.Filters
         {
             var exceptionData = new PlayFactoryHandledExceptionData(context.Exception);
 
-            _eventBus.TriggerAsync(exceptionData);
+            _eventBus.Trigger(exceptionData);
         }
     }
 }
