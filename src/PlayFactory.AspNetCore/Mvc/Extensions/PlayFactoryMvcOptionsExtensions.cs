@@ -21,7 +21,7 @@ namespace PlayFactory.AspNetCore.Mvc.Extensions
 
         private static void AddFilters(MvcOptions options)
         {
-            options.Filters.Add(typeof(UnitOfWorkAttribute));
+            options.Filters.Add(typeof(UnitOfWorkFilter));
         }
 
     }

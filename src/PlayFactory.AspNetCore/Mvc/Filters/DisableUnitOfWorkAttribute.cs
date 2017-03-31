@@ -5,7 +5,7 @@ namespace PlayFactory.AspNetCore.Mvc.Filters
     /// <summary>
     /// Filter that disables Controller and / or Action UnitOfWork.
     /// </summary>
-    public class DisableUnitOfWorkAttribute : ActionFilterAttribute
+    public class DisableUnitOfWorkAttribute : ActionFilterAttribute, IUnitOfWorkFilter
     {
        
     }
