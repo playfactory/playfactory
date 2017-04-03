@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <PackageId>PlayFactory.AspNetCore</PackageId>
-    <PackageVersion>1.0.0-beta</PackageVersion>
+    <PackageVersion>1.0.0-beta2</PackageVersion>
     <Authors>Welson Play</Authors>
     <Description>PlayFactory Framework For ASP.NET Core</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PlayFactory.Core\PlayFactory.Core.csproj" />
     <ProjectReference Include="..\PlayFactory.EFCore\PlayFactory.EFCore.csproj" />
     <ProjectReference Include="..\PlayFactory\PlayFactory.csproj" />
   </ItemGroup>
