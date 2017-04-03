@@ -1,4 +1,4 @@
-﻿namespace PlayFactory.Entity
+﻿namespace PlayFactory.Entities
 {
     /// <summary>
     /// Base interface for entities with Int.

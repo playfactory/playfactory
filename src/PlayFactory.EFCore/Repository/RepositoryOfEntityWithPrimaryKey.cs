@@ -5,16 +5,17 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PlayFactory.EFCore.UnitOfWork;
-using PlayFactory.Entity;
+using PlayFactory.Entities;
 using PlayFactory.Exceptions;
 using PlayFactory.Repository;
+using PlayFactory.UnitOfWork;
 
 namespace PlayFactory.EFCore.Repository
 {
     public class RepositoryOfEntityWithPrimaryKey<TEntity, TPrimaryKey> : RepositoryInternal<TEntity>, IRepository<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        public RepositoryOfEntityWithPrimaryKey(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public RepositoryOfEntityWithPrimaryKey(IUnitOfWorkDbContext unitOfWork) : base(unitOfWork)
         {
         }
 

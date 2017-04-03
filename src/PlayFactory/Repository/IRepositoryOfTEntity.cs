@@ -1,4 +1,4 @@
-﻿using PlayFactory.Entity;
+﻿using PlayFactory.Entities;
 
 namespace PlayFactory.Repository
 {

@@ -9,8 +9,4 @@
     <ProjectReference Include="..\PlayFactory\PlayFactory.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Entity\" />
-  </ItemGroup>
-
 </Project>

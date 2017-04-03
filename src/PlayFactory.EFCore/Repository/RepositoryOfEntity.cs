@@ -1,6 +1,7 @@
 ﻿using PlayFactory.EFCore.UnitOfWork;
-using PlayFactory.Entity;
+using PlayFactory.Entities;
 using PlayFactory.Repository;
+using PlayFactory.UnitOfWork;
 
 namespace PlayFactory.EFCore.Repository
 {
@@ -8,7 +9,7 @@ namespace PlayFactory.EFCore.Repository
     public class RepositoryOfEntity<TEntity>: RepositoryOfEntityWithPrimaryKey<TEntity, int>, IRepository<TEntity>
         where TEntity : class, IEntity<int>
     {
-        public RepositoryOfEntity(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public RepositoryOfEntity(IUnitOfWorkDbContext unitOfWork) : base(unitOfWork)
         {
 
         }

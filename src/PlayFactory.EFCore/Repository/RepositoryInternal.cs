@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PlayFactory.Collection;
-using PlayFactory.EFCore.Context;
 using PlayFactory.EFCore.UnitOfWork;
 using PlayFactory.Repository;
 
@@ -15,11 +14,11 @@ namespace PlayFactory.EFCore.Repository
     public class RepositoryInternal<TEntity> : IRepositoryInternal<TEntity>
         where TEntity : class
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public virtual PlayFactoryDbContextBase Context => _unitOfWork.GetDbContext();
+        private readonly IUnitOfWorkDbContext _unitOfWork;
+        public virtual DbContext Context => _unitOfWork.GetDbContext();
         public virtual DbSet<TEntity> DbSet => Context.Set<TEntity>();
 
-        protected RepositoryInternal(IUnitOfWork unitOfWork)
+        protected RepositoryInternal(IUnitOfWorkDbContext unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

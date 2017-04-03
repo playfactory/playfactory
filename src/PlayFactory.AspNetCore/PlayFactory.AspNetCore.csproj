@@ -24,4 +24,8 @@
     <ProjectReference Include="..\PlayFactory.EFCore\PlayFactory.EFCore.csproj" />
     <ProjectReference Include="..\PlayFactory\PlayFactory.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mvc\Filters\Auditing\" />
+  </ItemGroup>
 </Project>

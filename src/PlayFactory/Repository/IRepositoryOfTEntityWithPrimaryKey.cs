@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using PlayFactory.Entity;
+using PlayFactory.Entities;
 
 namespace PlayFactory.Repository
 {
