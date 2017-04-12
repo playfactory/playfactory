@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using PlayFactory.AspNetCore.Config;
 using PlayFactory.AspNetCore.Mvc.Filters.Extensions;
 using PlayFactory.EFCore.UnitOfWork;
+using PlayFactory.UnitOfWork;
 
 namespace PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork
 {

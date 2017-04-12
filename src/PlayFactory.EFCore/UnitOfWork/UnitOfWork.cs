@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using PlayFactory.EFCore.Context;
 
 namespace PlayFactory.EFCore.UnitOfWork
@@ -6,7 +7,7 @@ namespace PlayFactory.EFCore.UnitOfWork
     /// <summary>
     /// Implementation class of the Unit Of Work standard responsible for the application transaction control.
     /// </summary>
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWorkDbContext
     {
         private IDbContextTransaction _transaction;
 
@@ -44,7 +45,7 @@ namespace PlayFactory.EFCore.UnitOfWork
         }
 
         /// <inheritdoc />
-        public PlayFactoryDbContextBase GetDbContext()
+        public DbContext GetDbContext()
         {
             return DbContext;
         }

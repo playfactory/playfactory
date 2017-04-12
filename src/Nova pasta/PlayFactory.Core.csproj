@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <PackageId>PlayFactory.Core</PackageId>
-    <PackageVersion>1.0.0-beta2</PackageVersion>
+    <PackageVersion>1.0.0-beta</PackageVersion>
     <Authors>Welson Play</Authors>
     <Description>PlayFactory Framework For ASP.NET Core</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -15,12 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\PlayFactory.EFCore\PlayFactory.EFCore.csproj" />
     <ProjectReference Include="..\PlayFactory\PlayFactory.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\..\..\..\..\.nuget\packages\autofac\4.0.0\lib\netstandard1.1\Autofac.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

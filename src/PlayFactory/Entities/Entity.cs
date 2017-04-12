@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace PlayFactory.Entity
+namespace PlayFactory.Entities
 {
     /// <summary>
     /// This class is used to define that a class is an Entity. The Id type is int.

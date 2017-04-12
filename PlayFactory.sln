@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exemplos", "Exemplos", "{54
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exemplos.WebApi", "src\Exemplos.WebApi\Exemplos.WebApi.csproj", "{C1C7BBA5-797A-4D61-9900-04966D460955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFactory.Core", "src\PlayFactory.Core\PlayFactory.Core.csproj", "{AD72E2B2-6228-46E0-80AE-FB3E35AE55F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFactory.Core", "src\PlayFactory.Core\PlayFactory.Core.csproj", "{02221BCE-9237-4B8E-B889-85FD4C44140F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Web", "01 - Web", "{07FA3667-169B-4E3C-958B-3969726A3718}"
 EndProject
@@ -41,10 +41,10 @@ Global
 		{C1C7BBA5-797A-4D61-9900-04966D460955}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1C7BBA5-797A-4D61-9900-04966D460955}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1C7BBA5-797A-4D61-9900-04966D460955}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD72E2B2-6228-46E0-80AE-FB3E35AE55F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD72E2B2-6228-46E0-80AE-FB3E35AE55F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD72E2B2-6228-46E0-80AE-FB3E35AE55F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD72E2B2-6228-46E0-80AE-FB3E35AE55F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02221BCE-9237-4B8E-B889-85FD4C44140F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02221BCE-9237-4B8E-B889-85FD4C44140F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02221BCE-9237-4B8E-B889-85FD4C44140F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02221BCE-9237-4B8E-B889-85FD4C44140F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

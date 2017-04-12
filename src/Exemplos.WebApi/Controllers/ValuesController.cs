@@ -4,11 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PlayFactory.AspNetCore.Mvc.Filters;
 using PlayFactory.AspNetCore.Mvc.Filters.UnitOfWork;
+using PlayFactory.Core.Domains;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Exemplos.WebApi.Controllers
 {
+    public interface IAppTeste
+    {
+        
+    }
+
+    public class AppTeste : DomainService, IAppTeste
+    {
+        
+    }
+
     [Route("api/[controller]")]
     [DisableUnitOfWork]
     //[DisableUnitOfWork]
@@ -16,8 +27,9 @@ namespace Exemplos.WebApi.Controllers
     {
         public ILogger<ValuesController> Logger { get; set; }
 
-        public ValuesController(ILogger<ValuesController> logger)
+        public ValuesController(ILogger<ValuesController> logger, IAppTeste appTeste)
         {
+            var a = appTeste as DomainService;
             Logger = logger;
         }
 
