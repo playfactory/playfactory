@@ -1,0 +1,49 @@
+.md-skin-pf-blue .nav .open > a,
+.md-skin-pf-blue .nav .open > a:hover,
+.md-skin-pf-blue .nav .open > a:focus {
+  background: #0e9aef;
+}
+
+.md-skin-pf-blue .navbar-fixed-top,
+.md-skin-pf-blue .navbar-static-top {
+  background-color: #0e9aef !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.md-skin-pf-blue.landing-page .navbar-default .navbar-nav > li > a:hover,
+.md-skin-pf-blue.landing-page .navbar-default .navbar-nav > li > a:focus {
+  background: inherit;
+  color: #0e9aef;
+}
+
+.md-skin-pf-blue.top-navigation .nav > li a:hover,
+.md-skin-pf-blue .top-navigation .nav > li a:focus,
+.md-skin-pf-blue.top-navigation .nav .open > a,
+.md-skin-pf-blue.top-navigation .nav .open > a:hover,
+.md-skin-pf-blue.top-navigation .nav .open > a:focus {
+  color: #0e9aef;
+  background: #ffffff;
+}
+.md-skin-pf-blue.top-navigation .nav > li.active a {
+  color: #0e9aef;
+  background: #ffffff;
+}
+
+.md-skin-pf-blue .btn-minimalize-nav {
+    background-color: #0e9aef;
+    border-color: #0e9aef;
+    color: #FFFFFF;
+}
+
+.md-skin-pf-blue .nav > li.active {
+  border-left: 4px solid #0e9aef;
+}
+
+.md-skin-pf-blue .nav-header {
+  background-color: #0e9aef;
+  background-image: url('../../assets/styles/patterns/header-profile-skin-1.png');
+}
+
+.md-skin-pf-blue .navbar-header input {
+  color: #fff;
+}

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFactory", "src\PlayFactory\PlayFactory.csproj", "{B0623AEA-3F6F-4CE4-B9D5-83FC249C85D8}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exemplos.WebApi", "src\Exemplos.WebApi\Exemplos.WebApi.csproj", "{C1C7BBA5-797A-4D61-9900-04966D460955}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFactory.Core", "src\PlayFactory.Core\PlayFactory.Core.csproj", "{AD72E2B2-6228-46E0-80AE-FB3E35AE55F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Web", "01 - Web", "{07FA3667-169B-4E3C-958B-3969726A3718}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlayFactory.Web.Angular", "PlayFactory.Web.Angular", "{4961C369-BE97-4031-BD11-5DDE3060A25A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,5 +51,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C1C7BBA5-797A-4D61-9900-04966D460955} = {54D43C2E-3962-47C8-B0C6-3CA1B895D56D}
+		{4961C369-BE97-4031-BD11-5DDE3060A25A} = {07FA3667-169B-4E3C-958B-3969726A3718}
 	EndGlobalSection
 EndGlobal
